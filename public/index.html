@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1><span style="color:red">Hello</span> there!</h1>
+    <label for="tvShow">What is your favorite TV show?</label>
+    <input type="text" />
+    <button>Submit Your Answer</button>
+<script>
+    $("button").click(function() {
+        axios.post('/answer',{
+            "tvShow":$("select[name='tvShow']").val()
+        })
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    });
+</script>
+</body>
+</html>
